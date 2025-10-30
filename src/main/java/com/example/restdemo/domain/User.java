@@ -27,7 +27,8 @@ public class User {
     private String phone;
 
     @Column(nullable = false)
-    private String role;   //CUSTOMER or VENDOR
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     @Column(nullable = false)
     private Boolean active = true;
