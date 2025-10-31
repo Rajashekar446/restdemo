@@ -23,12 +23,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(UserNameAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponseDTO> handleUserAlreadyExistsException(UserNameAlreadyExistsException userNameAlreadyExistsException) {
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDTO> handleUserAlreadyExistsException(UserAlreadyExistsException userAlreadyExistsException) {
 
-        ErrorResponseDTO error = new ErrorResponseDTO();
-        error.setMessage(userNameAlreadyExistsException.getMessage());
-        error.setCode("DUPLICATE_USER");
-        return  ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO();
+        errorResponse.setMessage(userAlreadyExistsException.getMessage());
+        errorResponse.setCode("DUPLICATE_USER");
+        return  ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
     }
 }
