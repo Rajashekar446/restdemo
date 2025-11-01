@@ -31,12 +31,8 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public void registerVendor(VendorRegistrationDTO vendorRegistrationDTO) {
-        //  User user = new User();
-        //user.s
-
 
     }
-
 
     @Override
     public void customerRegistration(CustomerRegistrationDTO customerRegistrationDTO) {
