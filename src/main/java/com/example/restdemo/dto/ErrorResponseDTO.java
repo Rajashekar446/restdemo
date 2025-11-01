@@ -1,4 +1,4 @@
-package com.example.restdemo.domain;
+package com.example.restdemo.dto;
 
 import lombok.Data;
 

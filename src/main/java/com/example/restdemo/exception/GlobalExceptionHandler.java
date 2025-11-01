@@ -1,6 +1,6 @@
 package com.example.restdemo.exception;
 
-import com.example.restdemo.domain.ErrorResponseDTO;
+import com.example.restdemo.dto.ErrorResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -30,5 +30,13 @@ public class GlobalExceptionHandler {
         errorResponse.setMessage(userAlreadyExistsException.getMessage());
         errorResponse.setCode("DUPLICATE_USER");
         return  ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ErrorResponseDTO> handleInvalidCredentialsException(InvalidCredentialsException invalidCredentialsException) {
+        ErrorResponseDTO errorResponse = new ErrorResponseDTO();
+        errorResponse.setMessage(invalidCredentialsException.getMessage());
+        errorResponse.setCode("INVALID_CREDENTIALS");
+        return  ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
     }
 }
